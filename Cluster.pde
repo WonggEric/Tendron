@@ -1,4 +1,4 @@
-class Cluster {
+public class Cluster {
   private float x, y;
   private int numSegments;
 
