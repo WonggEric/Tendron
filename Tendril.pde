@@ -1,4 +1,4 @@
-class Tendron {
+public class Tendron {
   private float x, y, angle;
   private int numSegments;
 
