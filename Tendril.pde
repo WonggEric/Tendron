@@ -1,21 +1,37 @@
-class Tendril
-{
-  public final static int SEG_LENGTH = 4; //length of each segment in the tendril
-  private int myNumSegments, myX, myY;
-  private double myAngle;
-  
-  /**
-   Class constructor
-   len is how many segments in this tendril (each a fixed length, 4 is a good start)
-   theta is tendril starting angle in radians 
-   x, y  is the starting (x,y) coordinate
-   */
-  public Tendril(int len, double theta, int x, int y)
-  {
-    //your code here
+public class Tendron {
+  private float myX, myY;
+  private float myAngle;
+  private int myNumSegments;
+
+  public Tendron(float x, float y, float angle, int numSegments) {
+    myX = x;
+    myY = y;
+    myAngle = angle;
+    myNumSegments = numSegments;
   }
-  public void show()
-  {
-    //your code here
+
+  public void show() {
+    strokeWeight(1.5);
+    stroke(255);
+
+    float startX = myX;
+    float startY = myY;
+
+    for (int i = 0; i < myNumSegments; i++) {
+      myAngle += random(-0.2, 0.2);
+
+      float endX = startX + cos(myAngle) * segmentLength;
+      float endY = startY + sin(myAngle) * segmentLength;
+
+      line(startX, startY, endX, endY);
+
+      startX = endX;
+      startY = endY;
+    }
+
+    if (myNumSegments >= TendronLength) {
+      Cluster cluster = new Cluster(startX, startY, myNumSegments / 2);
+      cluster.show();
+    }
   }
 }
