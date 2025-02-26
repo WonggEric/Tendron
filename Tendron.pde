@@ -1,16 +1,30 @@
-public void setup()
-{
-  size(500, 500);  
-  background(255);
-  noLoop();
+private int TendronLength = 1;
+
+private float segmentLength = 8;
+
+private int numSegments = 30;
+
+private boolean move = true;
+
+public void setup() {
+  size(1000, 1000);
+  background(0);
+  Cluster cluster = new Cluster(500, 500, numSegments);
+  cluster.show();
 }
 
-public void draw()
-{
-  background(255);
-  Cluster c = new Cluster(50, 250, 250); // initial number of segments in the tendril and starting (x,y) coordinate
+public void draw() {
+  if (move) {
+    background(0);
+    Cluster cluster = new Cluster(500, 500, numSegments);
+    cluster.show();
+    move = false;
+  }
 }
-public void mousePressed()
-{
-  redraw();
+
+public void mousePressed() {
+  if (mouseButton == LEFT) {
+    move = true;
+  }
 }
+
