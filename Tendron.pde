@@ -1,16 +1,16 @@
-int TendronLength = 1;
-float segmentLength = 8;
-int numSegments = 30;
-boolean move = true;
+public final static int TendronLength = 1;
+public final static float segmentLength = 8;
+public final static int numSegments = 30;
+public final static boolean move = true;
 
-void setup() {
+public void setup() {
   size(1000, 1000);
   background(0);
   Cluster cluster = new Cluster(width / 2, height / 2, numSegments);
   cluster.show();
 }
 
-void draw() {
+public void draw() {
   if (move) {
     background(0);
     Cluster cluster = new Cluster(width / 2, height / 2, numSegments);
@@ -19,7 +19,7 @@ void draw() {
   }
 }
 
-void mousePressed() {
+public void mousePressed() {
   if (mouseButton == LEFT) {
     move = true;
   }
