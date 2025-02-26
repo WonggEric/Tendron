@@ -1,9 +1,18 @@
-public class Cluster
-{
-    public final static int NUM_STEMS = 7; //number of tendrils per cluster
+public class Cluster {
+  private float myX, myY;
+  private int myNumSegments;
 
-    public Cluster(int len, int x, int y)
-    {
-        // your code here
+  public Cluster(float x, float y, int numSegments) {
+    myX = x;
+    myY = y;
+    myNumSegments = numSegments;
+  }
+
+  public void show() {
+    for (int i = 0; i < 5; i++) {
+      float angle = i * 2 * PI / 5;
+      Tendron Tendron = new Tendron(myX, myY, angle, myNumSegments);
+      Tendron.show();
     }
+  }
 }
